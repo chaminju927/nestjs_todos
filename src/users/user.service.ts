@@ -8,11 +8,15 @@ import { InjectModel } from '@nestjs/mongoose';
 export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
+  isExist(id) {
+    this.userModel.findOne({ id });
+  }
+
   getLogin(LoginData: LoginDto) {
     return LoginData;
   }
   findOne(username: string) {
-    return an;
+    return;
   }
 
   async getSignUp(SignUpDto: SignUpDto): Promise<User> {

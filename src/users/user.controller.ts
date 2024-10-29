@@ -1,7 +1,6 @@
 import { Body, Controller, Get, Post, Res } from '@nestjs/common';
 import { UserService } from './user.service';
 import { LoginDto, SignUpDto } from './user.dto';
-import { Response } from 'express';
 
 @Controller('members')
 export class UserController {
@@ -9,6 +8,7 @@ export class UserController {
 
   @Post()
   getLogin(@Body() LoginDto: LoginDto) {
+    const id = LoginDto.id;
     return this.userService.getLogin(LoginDto);
   }
 
@@ -17,10 +17,10 @@ export class UserController {
     return this.userService.getSignUp(SignUpDto);
   }
 
-  @Get()
-  test(@Res() res: Response) {
-    // res.status(HttpStatus.CREATED).send();
-    console.log('success');
-    //  res.status(HttpStatus.OK).json([]);
-  }
+  // @Get()
+  // test(@Res() res: Response) {
+  //   // res.status(HttpStatus.CREATED).send();
+  //   console.log('success');
+  //   //  res.status(HttpStatus.OK).json([]);
+  // }
 }

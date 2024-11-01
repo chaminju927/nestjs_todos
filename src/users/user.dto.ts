@@ -4,7 +4,7 @@ export class LoginDto {
   id: string;
   password: string;
 }
-export class SignUpDto {
+export class UserDto {
   @IsString()
   name: string;
 
